@@ -1,0 +1,17 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Kategori extends Model
+{
+    protected $fillable= ['nama', 'slug'];
+    public $timestamps = true;
+
+    public function artikel(){
+        // Model dari kategori bisa memiliki banyak data
+        // Dari model Artikel melalui kategori_id
+        return $this->hasMany('App\Artikel', 'kategori_id');
+    }
+}
