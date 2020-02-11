@@ -17,21 +17,17 @@
                     You are logged in! --}}
                     <form action=" {{ route('siswa.store') }} " method="POST">
                         @csrf
-                        <div class="row">
-                            <div class="col-md-4">
+                            <div class="form-group">
                                 <label for="">Masukkan Nama Siswa</label>
+                                <input type="text" class="form-control" name="nama" required>
                             </div>
-                            <div class="col-md-8">
-                                <input type="text" name="nama" required>
-                            </div>
-                            <div class="col-md-4">
+                            <div class="form-group">
                                 <label for="">Masukkan Kelas</label>
+                                <input type="text" class="form-control" name="kelas" required>
                             </div>
-                            <div class="col-md-8">
-                                <input type="text" name="kelas" required>
-                            </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary"  type="submit">Simpan</button>
                         </div>
-                        <button class="btn btn-primary" type="submit">Simpan</button>
                     </form>
                 </div>
             </div>
