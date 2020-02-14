@@ -15,7 +15,7 @@
                     @endif
 
                     You are logged in! --}}
-                    <form action=" {{ route('siswa.store') }} " method="POST">
+                    <form action=" {{ route('siswa.store') }} " method="POST" enctype="multipart/form-data">
                         @csrf
                             <div class="form-group">
                                 <label for="">Masukkan Nama Siswa</label>
@@ -24,6 +24,14 @@
                             <div class="form-group">
                                 <label for="">Masukkan Kelas</label>
                                 <input type="text" class="form-control" name="kelas" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Pilih Hobi</label>
+                                <select class="form-control pilih-hobi" multiple name="hobi_id[]" id="">
+                                    @foreach ($hobi as $item)
+                                        <option value=" {{$item->id}} "> {{$item->nama}} </option>
+                                    @endforeach
+                                </select>
                             </div>
                         <div class="form-group">
                             <button class="btn btn-primary"  type="submit">Simpan</button>
@@ -35,3 +43,10 @@
     </div>
 </div>
 @endsection
+@push('script')
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.pilih-hobi').select2();
+        });
+    </script>
+@endpush

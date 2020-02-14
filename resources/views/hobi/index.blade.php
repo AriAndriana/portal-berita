@@ -13,8 +13,8 @@
 
             <div class="card">
                 <div class="card-header">Dashboard
-                    <a href="{{ route('siswa.create') }}" class="btn btn-primary" style="float: right;">
-                        Tambah Siswa
+                    <a href="{{ route('hobi.create') }}" class="btn btn-primary" style="float: right;">
+                        Tambah Siswa Hobi
                     </a>
                 </div>
 
@@ -29,28 +29,26 @@
 
                     <table class="table">
                         <thead>
-                            <th>Nama Siswa</th>
-                            <th>Kelas</th>
-                            <th>Aksi</th>
+                            <th>Jenis Hobi</th>
+                            <th><center>Aksi</center></th>
                         </thead>
                         <tbody>
-                            @foreach ($data as $item)
+                            @foreach ($hobi as $item)
                                 <tr>
                                     <td> {{ $item->nama }} </td>
-                                    <td> {{ $item->kelas }} </td>
-                                    <td>
-                                    <form action="{{ route('siswa.destroy', $item->id) }}" method="post">
+                                    <td><center>
+                                    <form action="{{ route('hobi.destroy', $item->id) }}" method="post">
                                         @csrf
                                         @method('Delete')
-                                        <a class="btn btn-info" href=" {{route('siswa.show', $item->id)}} ">
+                                        <a class="btn btn-info" href=" {{route('hobi.show', $item->id)}} ">
                                             Show
                                         </a> |
-                                        <a class="btn btn-warning" href=" {{route('siswa.edit', $item->id)}} ">
+                                        <a class="btn btn-warning" href=" {{route('hobi.edit', $item->id)}} ">
                                             Edit
                                         </a> |
                                         <button type="submit" class="btn btn-danger">Delete</button>
                                     </form>
-                                    </td>
+                                </center></td>
                                 </tr>
                             @endforeach
                         </tbody>
